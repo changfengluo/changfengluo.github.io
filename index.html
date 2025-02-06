@@ -1,1 +1,93 @@
-<h1>欢迎</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>时空回廊 - 我的生命轴</title>
+    <style>
+        :root {
+            --primary-color: #FFB6C1; /* 樱花粉主色调 */
+            --bg-color: #fcf5f6; /* 浅色背景 */
+        }
+
+        body {
+            font-family: 'HarmonyOS Sans', sans-serif;
+            background: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 时间轴线条 */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        /* 时间节点卡片 */
+        .timeline-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 二次元风格标签 */
+        .tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        /* 机动战士风格的年份标记 */
+        .year-marker {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+        .year-marker span {
+            background: var(--bg-color);
+            padding: 5px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🧭 时空回廊</h1>
+        <p>「记录每一帧人生轨迹」</p>
+    </header>
+
+    <div class="timeline">
+        <div class="year-marker"><span>🎯 2023</span></div>
+        
+        <div class="timeline-item">
+            <div class="tag">📌 里程碑</div>
+            <h2>世界线收束事件</h2>
+            <time>2023-04-15</time>
+            <p>在秋叶原达成「单日暴走20家宅店」成就...</p>
+            <img src="akihabara.jpg" 
+                 style="width:100%; border-radius:8px; margin-top:10px;">
+        </div>
+
+        <!-- 更多时间节点 -->
+    </div>
+</body>
+</html>
+
