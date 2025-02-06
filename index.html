@@ -1,93 +1,154 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark-mode">
 <head>
     <meta charset="UTF-8">
-    <title>时空回廊 - 我的生命轴</title>
+    <title>◼ Timeline Core</title>
     <style>
         :root {
-            --primary-color: #FFB6C1; /* 樱花粉主色调 */
-            --bg-color: #fcf5f6; /* 浅色背景 */
+            --ink: #000;
+            --paper: #fff;
+            --accent: #666;
         }
 
-        body {
-            font-family: 'HarmonyOS Sans', sans-serif;
-            background: var(--bg-color);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        /* 时间轴终极形态 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding-left: 4rem;
         }
 
-        /* 时间轴线条 */
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: var(--primary-color);
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: repeating-linear-gradient(
+                180deg,
+                var(--accent) 0px,
+                var(--accent) 4px,
+                transparent 4px,
+                transparent 8px
+            );
         }
 
-        /* 时间节点卡片 */
-        .timeline-item {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+        /* 时间节点 */
+        .event {
             position: relative;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+            padding-left: 4rem;
+            transition: filter 0.3s;
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* 事件卡片 */
+        .event-card {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            padding: 1.5rem;
+            position: relative;
+            cursor: pointer;
             transition: transform 0.3s;
         }
 
-        .timeline-item:hover {
-            transform: translateY(-5px);
+        .event-card:hover {
+            transform: translateX(10px);
+            box-shadow: -8px 8px 0 var(--accent);
         }
 
-        /* 二次元风格标签 */
-        .tag {
-            background: var(--primary-color);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 15px;
-            font-size: 0.9em;
-        }
-
-        /* 机动战士风格的年份标记 */
-        .year-marker {
-            text-align: center;
-            margin: 40px 0;
-            position: relative;
-        }
-        .year-marker span {
-            background: var(--bg-color);
-            padding: 5px 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 30px;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: bold;
+        /* 详情面板 */
+        #detail-panel {
+            position: fixed;
+            top: 0;
+            right: -600px;
+            width: 600px;
+            height: 100vh;
+            background: var(--paper);
+            border-left: 3px solid var(--ink);
+            transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: 2rem;
+            overflow-y: auto;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>🧭 时空回廊</h1>
-        <p>「记录每一帧人生轨迹」</p>
-    </header>
+    <main class="timeline">
+        <!-- 动态加载事件 -->
+        <script type="text/template" id="event-tpl">
+            <div class="event" data-id="{{id}}">
+                <div class="event-card">
+                    <time>{{date}}</time>
+                    <h3>{{title}}</h3>
+                    <div class="tags">{{tags}}</div>
+                </div>
+            </div>
+        </script>
+    </main>
 
-    <div class="timeline">
-        <div class="year-marker"><span>🎯 2023</span></div>
-        
-        <div class="timeline-item">
-            <div class="tag">📌 里程碑</div>
-            <h2>世界线收束事件</h2>
-            <time>2023-06-08</time>
-            <p>高考，结束了...</p>
-            <img src="akihabara.jpg" 
-                 style="width:100%; border-radius:8px; margin-top:10px;">
-        </div>
-
-        <!-- 更多时间节点 -->
+    <div id="detail-panel">
+        <button onclick="closeDetail()">×</button>
+        <div id="detail-content"></div>
     </div>
+
+    <script>
+        // 事件数据样例
+        const events = [
+            {
+                id: "eva-2023",
+                date: "2023-08-25",
+                title: "补完计划达成",
+                tags: ["动漫", "哲学"],
+                content: `
+                    <h2>EVA终章观后</h2>
+                    <img src="eva-poster.jpg" style="width:100%">
+                    <audio controls src="eva-bgm.mp3"></audio>
+                    <p>真正冲击性的结局在于与自己的和解...</p>
+                `
+            }
+            // 更多事件...
+        ]
+
+        // 时间轴渲染
+        events.forEach(event => {
+            const tpl = document.getElementById('event-tpl').innerHTML
+                .replace('{{id}}', event.id)
+                .replace('{{date}}', event.date)
+                .replace('{{title}}', event.title)
+                .replace('{{tags}}', event.tags.map(t => `<span>#${t}</span>`).join(''))
+            
+            document.querySelector('.timeline').insertAdjacentHTML('beforeend', tpl)
+        })
+
+        // 交互系统
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const eventId = card.closest('.event').dataset.id
+                const detail = events.find(e => e.id === eventId)
+                
+                document.getElementById('detail-content').innerHTML = detail.content
+                document.getElementById('detail-panel').style.right = '0'
+            })
+        })
+
+        function closeDetail() {
+            document.getElementById('detail-panel').style.right = '-600px'
+        }
+    </script>
 </body>
 </html>
 
