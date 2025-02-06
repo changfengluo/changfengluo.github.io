@@ -1,29 +1,153 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark">
-
+<html lang="zh-CN" class="dark-mode">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>▪▪▪ TIMELINE</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>◼ Timeline Core</title>
+    <style>
+        :root {
+            --ink: #000;
+            --paper: #fff;
+            --accent: #666;
+        }
+
+        /* 时间轴终极形态 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding-left: 4rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: repeating-linear-gradient(
+                180deg,
+                var(--accent) 0px,
+                var(--accent) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* 时间节点 */
+        .event {
+            position: relative;
+            margin: 3rem 0;
+            padding-left: 4rem;
+            transition: filter 0.3s;
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* 事件卡片 */
+        .event-card {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            padding: 1.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateX(10px);
+            box-shadow: -8px 8px 0 var(--accent);
+        }
+
+        /* 详情面板 */
+        #detail-panel {
+            position: fixed;
+            top: 0;
+            right: -600px;
+            width: 600px;
+            height: 100vh;
+            background: var(--paper);
+            border-left: 3px solid var(--ink);
+            transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="timeline-control">
-        <button id="toggleTheme">◑</button>
-    </nav>
-
-    <main class="timeline-container">
-        <div class="timeline-axis"></div>
-        <div id="eventsContainer"></div>
+    <main class="timeline">
+        <!-- 动态加载事件 -->
+        <script type="text/template" id="event-tpl">
+            <div class="event" data-id="{{id}}">
+                <div class="event-card">
+                    <time>{{date}}</time>
+                    <h3>{{title}}</h3>
+                    <div class="tags">{{tags}}</div>
+                </div>
+            </div>
+        </script>
     </main>
 
-    <aside id="detailPanel" class="hidden">
-        <button class="close-btn" onclick="closeDetail()">╳</button>
-        <div id="detailContent"></div>
-    </aside>
+    <div id="detail-panel">
+        <button onclick="closeDetail()">×</button>
+        <div id="detail-content"></div>
+    </div>
 
-    <script src="scripts/app.js"></script>
+    <script>
+        // 事件数据样例
+        const events = [
+            {
+                id: "eva-2023",
+                date: "2023-08-25",
+                title: "补完计划达成",
+                tags: ["动漫", "哲学"],
+                content: `
+                    <h2>EVA终章观后</h2>
+                    <img src="eva-poster.jpg" style="width:100%">
+                    <audio controls src="eva-bgm.mp3"></audio>
+                    <p>真正冲击性的结局在于与自己的和解...</p>
+                `
+            }
+            // 更多事件...
+        ]
+
+        // 时间轴渲染
+        events.forEach(event => {
+            const tpl = document.getElementById('event-tpl').innerHTML
+                .replace('{{id}}', event.id)
+                .replace('{{date}}', event.date)
+                .replace('{{title}}', event.title)
+                .replace('{{tags}}', event.tags.map(t => `<span>#${t}</span>`).join(''))
+            
+            document.querySelector('.timeline').insertAdjacentHTML('beforeend', tpl)
+        })
+
+        // 交互系统
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const eventId = card.closest('.event').dataset.id
+                const detail = events.find(e => e.id === eventId)
+                
+                document.getElementById('detail-content').innerHTML = detail.content
+                document.getElementById('detail-panel').style.right = '0'
+            })
+        })
+
+        function closeDetail() {
+            document.getElementById('detail-panel').style.right = '-600px'
+        }
+    </script>
 </body>
-
 </html>
