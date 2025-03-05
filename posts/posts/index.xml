@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cfl on </title>
+    <link>//localhost:1313/posts/posts/</link>
+    <description>Recent content in cfl on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>长风落</title>
+      <link>//localhost:1313/posts/posts/%E9%95%BF%E9%A3%8E%E8%90%BD/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/posts/%E9%95%BF%E9%A3%8E%E8%90%BD/</guid>
+      <description>&lt;p&gt;长日尽处我两手空空&lt;br&gt;&#xA;陨落时带不走一丝哀愁&lt;br&gt;&#xA;地狱，今夜我在门口&lt;br&gt;&#xA;那是雨水中永远熄灭的梦&lt;/p&gt;&#xA;&lt;p&gt;我错过了，路过了，失去了&lt;br&gt;&#xA;梦，化作过往&lt;br&gt;&#xA;梦中，雨暴风狂&lt;/p&gt;&#xA;&lt;p&gt;那是唯一的，最后的哭泣&lt;br&gt;&#xA;那是唯一的，最后的叹息&lt;/p&gt;&#xA;&lt;p&gt;我把雨水还给天空&lt;br&gt;&#xA;让逝去的逝去&lt;br&gt;&#xA;我独自前行&lt;br&gt;&#xA;长风不落，万物不生&lt;br&gt;&#xA;我不再期待光明&lt;br&gt;&#xA;我只想你&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
