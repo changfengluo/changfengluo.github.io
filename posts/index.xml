@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cfl on </title>
+    <title>Articles on </title>
     <link>//localhost:1313/posts/</link>
-    <description>Recent content in cfl on </description>
+    <description>Recent content in Articles on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>//localhost:1313/posts/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/about/</guid>
-      <description>&lt;p&gt;我愿意加入罗德岛&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Contact</title>
-      <link>//localhost:1313/posts/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/contact/</guid>
-      <description>&lt;p&gt;感兴趣可以访问&lt;a href=&#34;https://github.com.changfengluo/&#34;&gt;Formspree&lt;/a&gt;&lt;/p&gt;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;form class=&#34;black-80 sans-serif&#34; accept-charset=&#34;UTF-8&#34; action=&#34;https://example.com&#34; method=&#34;POST&#34; role=&#34;form&#34;&gt;&#xD;&#xA;&#xD;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34;  for=&#34;name&#34;&gt;Your Name&lt;/label&gt;&#xD;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;name&#34;/&gt;&#xD;&#xA;&#xD;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;&#xD;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;email&#34;/&gt;&#xD;&#xA;    &lt;div class=&#34;requirements f6 gray glow i ph3 overflow-hidden&#34;&gt;&#xD;&#xA;      An email address is required.&#xD;&#xA;    &lt;/div&gt;&#xD;&#xA;&#xD;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;message&#34;&gt;Message&lt;/label&gt;&#xD;&#xA;    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn h4&#34; aria-labelledby=&#34;message&#34;&gt;&lt;/textarea&gt;&#xD;&#xA;&#xD;&#xA;    &lt;input class=&#34;db w-100 mv2 white pa3 bn hover-shadow hover-bg-black bg-animate bg-black&#34; type=&#34;submit&#34; value=&#34;Send&#34; /&gt;&#xD;&#xA;&#xD;&#xA;&lt;/form&gt;</description>
+      <title>长风落</title>
+      <link>//localhost:1313/posts/%E9%95%BF%E9%A3%8E%E8%90%BD/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/%E9%95%BF%E9%A3%8E%E8%90%BD/</guid>
+      <description>&lt;p&gt;长日尽处我两手空空&lt;br&gt;&#xA;陨落时带不走一丝哀愁&lt;br&gt;&#xA;地狱，今夜我在门口&lt;br&gt;&#xA;那是雨水中永远熄灭的梦&lt;/p&gt;&#xA;&lt;p&gt;我错过了，路过了，失去了&lt;br&gt;&#xA;梦，化作过往&lt;br&gt;&#xA;梦中，雨暴风狂&lt;/p&gt;&#xA;&lt;p&gt;那是唯一的，最后的哭泣&lt;br&gt;&#xA;那是唯一的，最后的叹息&lt;/p&gt;&#xA;&lt;p&gt;我把雨水还给天空&lt;br&gt;&#xA;让逝去的逝去&lt;br&gt;&#xA;我独自前行&lt;br&gt;&#xA;长风不落，万物不生&lt;br&gt;&#xA;我不再期待光明&lt;br&gt;&#xA;我只想你&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
